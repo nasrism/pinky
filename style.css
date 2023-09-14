@@ -1,0 +1,249 @@
+html{
+    font-family: 'Schoolbell', cursive;
+    font-size: 17px;
+}
+
+body{
+    margin:0px;
+    background-color: pink;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+#preloader{
+    background: pink url(https://i.gifer.com/embedded/download/2ulp.gif) no-repeat center;
+    background-size: 10%;
+    height: 100vh;
+    width:100vw;
+    position: fixed;
+    z-index: 2;
+}
+
+#mobile{
+    visibility: hidden;
+    text-align: center;
+    padding: 3%;
+    max-width: 360px;
+    position: fixed;
+    z-index: 3;
+}
+
+.sorry{
+   width: 75vw;
+   max-width: 360px;
+   box-shadow: none;
+}
+
+h4{
+    font-size: 1.5rem;
+    color: red;
+}
+
+.card_swiper{
+    visibility: visible;
+    position: fixed;
+    z-index: 1;
+    max-width: 720px;
+}
+
+.card_deck{
+    border-radius: 2vmin;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    max-width: 720px;
+    background-color: antiquewhite;
+    position: fixed;
+    z-index: 0;
+}
+
+img{
+    margin: 0px;
+    height:100%;
+    width: 100%;
+    object-fit:cover;
+    border-radius: 2vmin;
+    overflow: hidden;
+    box-shadow: -2vmin 2vmin 3vmin rgba(0, 0, 0, 0.4);
+}
+
+ .card_groups, .card_group, .big_card{
+    width:30vmin;
+
+}
+
+.card_groups, .card_group,.big_card,.little_card{
+    aspect-ratio: 5 / 7;
+
+}
+
+.card_group{
+    position: absolute;
+    transition: transform 400ms ease;
+}
+
+.card_group[data-status="unknown"]{
+    transform: scale(0);
+    transition: none;
+}
+
+.card_group[data-status="active"]{
+    transition-delay: 300ms;
+}
+
+.card_group[data-status="after"]{
+    transform: translateX(50%) scale(0);
+}
+
+.card_group[data-status="before"]{
+    transform: translateX(-50%) scale(0);
+}
+
+
+.card_group[data-status="becoming-active-from-after"] {
+    transform: translateX(50%) scale(0);
+    transition: none;
+  }
+  
+  .card_group[data-status="becoming-active-from-before"] {
+    transform: translateX(-50%) scale(0);
+    transition: none;
+  }  
+
+ .big_card,.little_card{
+    background-color: rgba(0,0,0,0);
+    position: absolute;
+    transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
+    background-position: center;
+    background-size: cover;
+}
+
+.card_group:nth-child(3){
+    .big_card,.little_card{
+    background-image: url(https://images.pond5.com/question-mark-white-black-footage-058304646_iconl.jpeg);
+    box-shadow: -2vmin 2vmin 3vmin rgba(255, 255, 255, 0.4);
+    }
+}
+
+.big_card{
+    border-radius: 1vmin;
+}
+
+.little_card{
+    width:10vmin; 
+    border-radius: 2vmin;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+}
+
+.big_card:nth-child(2){
+    transform: translateX(-10%) rotate(-1deg);
+}
+
+.big_card:nth-child(4){
+    transform: rotate(2deg);
+}
+
+.big_card:nth-child(6){
+    transform: translateX(-6%) rotate(-3deg);
+}
+
+.big_card:nth-child(8){
+    transform: translate(10%,3%) rotate(5deg);
+}
+/*when hover on picture*/
+.card_group:hover{
+    cursor: pointer;
+}
+
+.card_group:hover > .little_card:nth-child(1){
+    transform: translate(290%,-170%) rotate(-15deg);
+}
+
+.card_group:hover > .little_card:nth-child(3){
+    transform: translate(130%,170%) rotate(-17deg);
+}
+
+.card_group:hover > .little_card:nth-child(5){
+    transform: translate(-250%,190%) rotate(18deg);
+}
+
+.card_group:hover > .little_card:nth-child(7){
+    transform: translate(-170%,-230%) rotate(-20deg);
+}
+
+.card_group:hover > .big_card:nth-child(2){
+    transform: translate(-70%,11%) rotate(-22deg);
+}
+
+.card_group:hover > .big_card:nth-child(4){
+    transform: translate(-20%,3%) rotate(-7deg);
+}
+
+.card_group:hover > .big_card:nth-child(6){
+    transform: translate(20%,3%) rotate(7deg);
+}
+
+.card_group:hover > .big_card:nth-child(8){
+    transform: translate(70%,11%) rotate(22deg);
+}
+/*when click picture*/
+/*.card_deck[data-view="1"]{
+    transform: scale(0);
+}
+
+.card_group[data-view="1"]{
+    display: flex;
+}
+
+.card_viewer[data-view="1"]{
+    transition-delay: 300ms;
+    transform: scale(1);
+}
+
+.card_viewer{
+    transform: scale(0);
+    transition: none;
+    z-index: 1;
+}*/
+
+/*button choose picture*/
+.card_change{
+    margin-top: 8vmin;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0vmin 4vmin;
+}
+
+.card_change> button{
+    margin:0px;
+    font-size: 2.5vmin;
+    border: 0.4vmin solid palevioletred;
+    border-radius: 100%;
+    color: palevioletred;
+    background-color: transparent;
+    height: 7vmin;
+    width: 7vmin;
+    cursor: pointer; 
+    display: grid;
+    place-items: center;  
+}
+
+.card_change> button:hover{
+    color:white;
+    box-shadow: 0px 0px 36px 0px rgba(255,255,255,1);
+    background-color: palevioletred;
+}
+/*computer only*/
+@media (max-width:400px) {
+    #mobile{
+        visibility: visible;
+    }
+
+    .card_swiper{
+        visibility: hidden;
+    }
+}
