@@ -118,7 +118,7 @@ img{
 /*compress view*/
 .card_swiper[data-view="0"] .card_group[data-status="active"]{
     transition-delay: 1.2s;
-    transform: translateX() scale(1);
+    transform: translateX(0%) scale(1);
     }
 
 .card_swiper[data-view="0"] .compact_view{
