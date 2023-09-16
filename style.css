@@ -87,7 +87,7 @@ img{
 
 }
 
-.card_change .compact_view{
+.card_change > .compact_view{
     font-size: 2.5vmin;
     border-radius: 2vmin;
     height: 7vmin;
@@ -116,10 +116,6 @@ img{
     }
 
 /*compress view*/
-.card_swiper[data-view="0"] .card_group[data-status="active"]{
-    transition-delay: 1.2s;
-    transform: translateX(0%) scale(1);
-    }
 
 .card_swiper[data-view="0"] .compact_view{
     transition-delay: 1s;
@@ -132,35 +128,35 @@ img{
 
 
  /*card animation*/
- #card_id{
+ .card_group{
     position: absolute;
     justify-items:center;
     transition: transform 400ms ease;
 }
 
-#card_id[data-status="unknown"]{
+.card_group[data-status="unknown"]{
     transform: scale(0);
     transition: none;
 }
 
-.card_swiper .card_group[data-status="active"]{
+.card_group[data-status="active"]{
     transition-delay: 300ms;
 }
 
-#card_id[data-status="after"]{
+.card_group[data-status="after"]{
     transform: translateX(50%) scale(0);
 }
 
-#card_id[data-status="before"]{
+.card_group[data-status="before"]{
     transform: translateX(-50%) scale(0);
 }
 
-#card_id[data-status="becoming-active-from-after"] {
+.card_group[data-status="becoming-active-from-after"] {
     transform: translateX(50%) scale(0);
     transition: none;
   }
   
-  #card_id[data-status="becoming-active-from-before"] {
+.card_group[data-status="becoming-active-from-before"] {
     transform: translateX(-50%) scale(0);
     transition: none;
   }  
