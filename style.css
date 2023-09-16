@@ -42,20 +42,22 @@ h4{
 
 .card_swiper{
     visibility: visible;
-    position: fixed;
+    position: absolute;
+    justify-items:center;
+    align-items: center;
     z-index: 1;
-    max-width: 720px;
+    padding: 6.5vh;
+    max-width: 1080px;
+    background-color: antiquewhite;
+    border-radius: 2vmin;
+    box-shadow: 0vmin 0vmin 5vmin rgba(0, 0, 0, 0.4);
+    transition: width 1s .7s ease-out;
 }
 
-.card_deck{
-    border-radius: 2vmin;
-    left: 50%;
-    top:50%;
-    transform: translate(-50%,-50%);
-    max-width: 720px;
-    background-color: antiquewhite;
-    position: fixed;
-    z-index: 0;
+.card_group{
+    position: absolute;
+    left:0;right:0;top:12%;bottom:0;
+    margin:0 auto;
 }
 
 img{
@@ -68,6 +70,13 @@ img{
     box-shadow: -2vmin 2vmin 3vmin rgba(0, 0, 0, 0.4);
 }
 
+.card_group:nth-child(3){
+    .big_card,.little_card{
+    background-image: url(https://images.pond5.com/question-mark-white-black-footage-058304646_iconl.jpeg);
+    box-shadow: -2vmin 2vmin 3vmin rgba(255, 255, 255, 0.4);
+    }
+}
+
  .card_groups, .card_group, .big_card{
     width:30vmin;
 
@@ -78,52 +87,90 @@ img{
 
 }
 
-.card_group{
+.card_change .compact_view{
+    font-size: 2.5vmin;
+    border-radius: 2vmin;
+    height: 7vmin;
+    width: 10vmin;
     position: absolute;
+    transform: scaleX(0);
+}
+
+/*Grid view*/
+.compact_view, #back, #next{
+    transition: transform 200ms;
+    }
+
+.card_swiper[data-view="1"] .card_group[data-status="active"]{
+    transition-delay: 300ms;
+    transform: translateX(0%) scale(0);
+    }
+
+.card_swiper[data-view="1"] .compact_view{
+    transition-delay: 700ms;
+    transform: scaleX(1);
+    }
+
+.card_swiper[data-view="1"]{
+    width: 70vw;
+    }
+
+/*compress view*/
+.card_swiper[data-view="0"] .card_group[data-status="active"]{
+    transition-delay: 1.2s;
+    transform: translateX() scale(1);
+    }
+
+.card_swiper[data-view="0"] .compact_view{
+    transition-delay: 1s;
+    transform: scaleX(0);
+    }
+
+.card_swiper[data-view="0"]{
+    width:30Vmin;
+}
+
+
+ /*card animation*/
+ #card_id{
+    position: absolute;
+    justify-items:center;
     transition: transform 400ms ease;
 }
 
-.card_group[data-status="unknown"]{
+#card_id[data-status="unknown"]{
     transform: scale(0);
     transition: none;
 }
 
-.card_group[data-status="active"]{
+.card_swiper .card_group[data-status="active"]{
     transition-delay: 300ms;
 }
 
-.card_group[data-status="after"]{
+#card_id[data-status="after"]{
     transform: translateX(50%) scale(0);
 }
 
-.card_group[data-status="before"]{
+#card_id[data-status="before"]{
     transform: translateX(-50%) scale(0);
 }
 
-
-.card_group[data-status="becoming-active-from-after"] {
+#card_id[data-status="becoming-active-from-after"] {
     transform: translateX(50%) scale(0);
     transition: none;
   }
   
-  .card_group[data-status="becoming-active-from-before"] {
+  #card_id[data-status="becoming-active-from-before"] {
     transform: translateX(-50%) scale(0);
     transition: none;
   }  
 
+/*card activity*/
  .big_card,.little_card{
-    background-color: rgba(0,0,0,0);
     position: absolute;
     transition: transform 800ms cubic-bezier(.05,.43,.25,.95);
     background-position: center;
     background-size: cover;
-}
-
-.card_group:nth-child(3){
-    .big_card,.little_card{
-    background-image: url(https://images.pond5.com/question-mark-white-black-footage-058304646_iconl.jpeg);
-    box-shadow: -2vmin 2vmin 3vmin rgba(255, 255, 255, 0.4);
-    }
 }
 
 .big_card{
@@ -154,6 +201,7 @@ img{
 .big_card:nth-child(8){
     transform: translate(10%,3%) rotate(5deg);
 }
+
 /*when hover on picture*/
 .card_group:hover{
     cursor: pointer;
@@ -190,25 +238,6 @@ img{
 .card_group:hover > .big_card:nth-child(8){
     transform: translate(70%,11%) rotate(22deg);
 }
-/*when click picture*/
-/*.card_deck[data-view="1"]{
-    transform: scale(0);
-}
-
-.card_group[data-view="1"]{
-    display: flex;
-}
-
-.card_viewer[data-view="1"]{
-    transition-delay: 300ms;
-    transform: scale(1);
-}
-
-.card_viewer{
-    transform: scale(0);
-    transition: none;
-    z-index: 1;
-}*/
 
 /*button choose picture*/
 .card_change{
@@ -218,7 +247,7 @@ img{
     padding: 0vmin 4vmin;
 }
 
-.card_change> button{
+.card_change button{
     margin:0px;
     font-size: 2.5vmin;
     border: 0.4vmin solid palevioletred;
@@ -232,12 +261,15 @@ img{
     place-items: center;  
 }
 
-.card_change> button:hover{
-    color:white;
-    box-shadow: 0px 0px 36px 0px rgba(255,255,255,1);
+.card_change .compact_view:hover, #next:hover, #back:hover{
+    color:antiquewhite;
+    box-shadow: 0px 0px 36px 0px white;
     background-color: palevioletred;
+    transition: all .3s 0s ease-in-out;
 }
-/*computer only*/
+/*animate*/
+
+/*computer first*/
 @media (max-width:400px) {
     #mobile{
         visibility: visible;
