@@ -32,18 +32,7 @@ const backClick=()=>{
         activeIndex=nextIndex;
         });
 }
-/*
-const choose=()=>{
-        const select = document.querySelector(`[data-index="${activeIndex}"]`);
-        select.dataset.view = "1";
-        document.querySelector(".card_deck").dataset.view ="1";
-        document.querySelector(".card_viewer").dataset.view ="1";
-}
 
-const compact=()=>{
-        const select = document.querySelector(`[data-index="${activeIndex}"]`);
-        select.dataset.view = "0";
-        document.querySelector(".card_deck").dataset.view ="0";
-        document.querySelector(".card_viewer").dataset.view ="0";
-}
-*/
+const choose=()=>document.querySelector(".card_swiper").dataset.view ="1";
+
+const compact=()=>document.querySelector(".card_swiper").dataset.view ="0";
