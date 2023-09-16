@@ -267,11 +267,4 @@ img{
 
 /*computer first*/
 @media (max-width:400px) {
-    #mobile{
-        visibility: visible;
-    }
-
-    .card_swiper{
-        visibility: hidden;
-    }
 }
