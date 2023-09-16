@@ -8,7 +8,6 @@ text.style.paddingTop = "10Vmin";
 text.style.fontSize = "3Vmin";
 text.style.textAlign = "center";
 text.style.transition = "300ms";
-text.style.zIndex = "0";
 
 let screenSize = window.innerWidth>400?"use button bellow":"slide";
 text.innerHTML = "Please "+screenSize+" to see a pictures.";
@@ -54,4 +53,3 @@ const backClick=()=>{
 const choose=()=>document.querySelector(".card_swiper").dataset.view ="1";
 
 const compact=()=>document.querySelector(".card_swiper").dataset.view ="0";
-
