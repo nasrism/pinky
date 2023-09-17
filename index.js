@@ -62,7 +62,7 @@ scroll.onscrollend = function () {myFunction()};
 centerSlide = () =>{
 let height = scroll.scrollWidth - scroll.clientWidth;
 scroll.scrollLeft = height/2;
-} 
+}
 
   centerSlide();
 
