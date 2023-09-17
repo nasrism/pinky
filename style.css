@@ -94,7 +94,7 @@ img{
     width: 10vmin;
     position: absolute;
     transform: scaleX(0);
-}
+    }
 
 /*Grid view*/
 .compact_view, #back, #next{
@@ -267,4 +267,5 @@ img{
 
 /*computer first*/
 @media (max-width:400px) {
+ 
 }
