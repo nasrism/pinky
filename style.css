@@ -293,7 +293,13 @@ img{
         z-index: 2;
     }
     
+    .card > p{
+        font-size: 13px;
+        text-align: center;
+    }
+
     .card{
+        font-size: 1rem;
         display: grid;
         place-items: center;
         min-width: 30vmin;
