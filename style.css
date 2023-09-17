@@ -273,7 +273,7 @@ img{
 
 /*computer first*/
 @media (max-width:400px) {
- 
+  
     ::-webkit-scrollbar {
         width: 0;
       }

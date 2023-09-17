@@ -71,7 +71,7 @@ myFunction=()=> {
   let height = scroll.scrollWidth - scroll.clientWidth;
   let scrolled = (winScroll / height);
   scrolled>0.7? nextClick():scrolled<.3?backClick():console.log(scrolled);
-  
+   
   setTimeout(()=>{
   centerSlide();
         });
