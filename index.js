@@ -53,3 +53,26 @@ const backClick=()=>{
 const choose=()=>document.querySelector(".card_swiper").dataset.view ="1";
 
 const compact=()=>document.querySelector(".card_swiper").dataset.view ="0";
+
+//scroll
+let scroll = document.querySelector(".slider");
+
+scroll.onscrollend = function () {myFunction()};
+
+centerSlide = () =>{
+let height = scroll.scrollWidth - scroll.clientWidth;
+scroll.scrollLeft = height/2;
+} 
+
+  centerSlide();
+
+myFunction=()=> {
+  let winScroll = scroll.scrollLeft;
+  let height = scroll.scrollWidth - scroll.clientWidth;
+  let scrolled = (winScroll / height);
+  scrolled>0.7? nextClick():scrolled<.3?backClick():console.log(scrolled);
+  
+  setTimeout(()=>{
+  centerSlide();
+        });
+};
