@@ -25,9 +25,7 @@ const nextClick=()=>{
 
         currentGroup.dataset.status ="after";
         nextGroup.dataset.status = "becoming-active-from-before";
-
         text.style.opacity='0';
-
         setTimeout(()=>{
         nextGroup.dataset.status = "active";
         activeIndex=nextIndex;
@@ -41,7 +39,6 @@ const backClick=()=>{
         
         currentGroup.dataset.status ="before";
         nextGroup.dataset.status = "becoming-active-from-after";
-
         text.style.opacity='0';
 
         setTimeout(()=>{
